@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Climate Action | SDG 13</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1 class="logo">🌡️ Climate Action <small>SDG 13</small></h1>
+  <nav id="nav" aria-label="Main">
+    <a href="#overview">Overview</a>
+    <a href="#causes">Causes</a>
+    <a href="#effects">Effects</a>
+    <a href="#solutions">Solutions</a>
+    <a href="#footprint">My Footprint</a>
+    <a href="#feedback">Feedback</a>
+  </nav>
+</header>
+
+<main>
+<!-- 1. Overview -->
+<section id="overview">
+  <div class="hero">
+    <h2>The planet is warming. We can still steer it.</h2>
+    <p>Sustainable Development Goal 13 calls for urgent action against climate change and its impacts. In the 2015 Paris Agreement, countries agreed to hold warming well below 2°C and to pursue 1.5°C.</p>
+    <a class="btn" href="#causes">Start with the causes</a>
+  </div>
+  <div class="grid3">
+    <div class="card"><h3>🛟 Build resilience</h3><p>Help communities prepare for floods, droughts and storms.</p></div>
+    <div class="card"><h3>🧭 Plan and act</h3><p>Put climate goals into national policies, budgets and plans.</p></div>
+    <div class="card"><h3>🎓 Learn and share</h3><p>Teach people how to cut emissions and adapt to change.</p></div>
+  </div>
+</section>
+
+<!-- 2. Causes -->
+<section id="causes" hidden>
+  <h2>What causes climate change?</h2>
+  <p class="lead">Greenhouse gases such as carbon dioxide and methane trap heat in the atmosphere. Choose a source to see where they come from.</p>
+  <div class="chips" id="chips"></div>
+  <div class="card" id="cd" aria-live="polite"></div>
+</section>
+
+<!-- 3. Effects -->
+<section id="effects" hidden>
+  <h2>Why every half degree matters</h2>
+  <p class="lead">Compare two warming levels above pre-industrial temperatures.</p>
+  <div class="chips" id="seg">
+    <button class="chip" aria-pressed="true" data-k="1.5">1.5°C</button>
+    <button class="chip" aria-pressed="false" data-k="2">2°C</button>
+  </div>
+  <div class="fx">
+    <div class="therm"><div class="fill"></div></div>
+    <div class="card"><div class="tv" id="tv">+1.5°C</div><div id="stats" aria-live="polite"></div></div>
+  </div>
+  <p class="note">Source: IPCC Special Report on Global Warming of 1.5°C (2018).</p>
+</section>
+
+<!-- 4. Solutions -->
+<section id="solutions" hidden>
+  <h2>What can we do?</h2>
+  <p class="lead">Climate action works at every level. Filter by who acts.</p>
+  <div class="chips" id="flt">
+    <button class="chip" aria-pressed="true" data-f="all">All</button>
+    <button class="chip" aria-pressed="false" data-f="you">You</button>
+    <button class="chip" aria-pressed="false" data-f="community">Community</button>
+    <button class="chip" aria-pressed="false" data-f="government">Government</button>
+  </div>
+  <div class="grid3" id="sol">
+    <div class="card" data-who="you"><h3>🥗 Eat more plants</h3><p>Plant-rich meals usually have a smaller carbon footprint.</p></div>
+    <div class="card" data-who="you"><h3>🚲 Move smarter</h3><p>Walk, cycle or ride public transport for everyday trips.</p></div>
+    <div class="card" data-who="community"><h3>🌳 Plant and protect</h3><p>Community tree planting cools streets and stores carbon.</p></div>
+    <div class="card" data-who="community"><h3>🔧 Repair and share</h3><p>Repair cafés and swap events keep products in use longer.</p></div>
+    <div class="card" data-who="government"><h3>☀️ Clean power</h3><p>Expand solar and wind, and phase out coal.</p></div>
+    <div class="card" data-who="government"><h3>🏞️ Protect nature</h3><p>Safeguard forests and wetlands that absorb carbon.</p></div>
+  </div>
+</section>
+
+<!-- 5. Footprint calculator -->
+<section id="footprint" hidden>
+  <h2>Estimate your carbon footprint</h2>
+  <p class="lead">Move the sliders. This is a rough guide to compare habits, not an exact audit.</p>
+  <div class="two">
+    <form class="card" id="calc" onsubmit="return false">
+      <label class="rng"><span>🚗 Car travel, km per week <output></output></span><input type="range" min="0" max="300" value="50" data-k="8.84"></label>
+      <label class="rng"><span>🍖 Meat meals per week <output></output></span><input type="range" min="0" max="21" value="7" data-k="130"></label>
+      <label class="rng"><span>✈️ Return flights per year <output></output></span><input type="range" min="0" max="10" value="1" data-k="250"></label>
+      <label class="rng"><span>💡 Electricity, kWh per month <output></output></span><input type="range" min="0" max="800" step="10" value="250" data-k="6"></label>
+    </form>
+    <div class="card">
+      <div class="tot"><span id="tot">0</span> <small>tonnes CO₂ per year</small></div>
+      <div class="bar"><i></i><span class="mark" title="Global average"></span></div>
+      <p class="note">The dashed line marks the global average of about 4.7 tonnes per person across all sources, so treat this four-habit total as a guide.</p>
+      <p id="tip" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Feedback -->
+<section id="feedback" hidden>
+  <h2>Tell us what you think</h2>
+  <p class="lead">Your feedback helps improve this site.</p>
+  <div class="two">
+    <form class="card" id="fb" novalidate>
+      <label>Name <input id="nm" maxlength="40" autocomplete="name"></label>
+      <label>Email (optional) <input id="em" type="email" autocomplete="email"></label>
+      <label>Most useful section
+        <select id="fv"><option>Causes</option><option>Effects</option><option>Solutions</option><option>My Footprint</option></select>
+      </label>
+      <label id="rl">Rating</label>
+      <div class="stars" id="stars" role="radiogroup" aria-labelledby="rl"></div>
+      <label>Message <textarea id="ms" rows="4" maxlength="300"></textarea></label>
+      <small id="cnt">0 / 300</small>
+      <p id="er" role="alert"></p>
+      <button class="btn" type="submit">Send feedback</button>
+    </form>
+    <div class="card"><h3>Recent feedback</h3><p class="note">Saved in this browser only.</p><div id="fl"></div></div>
+  </div>
+</section>
+</main>
+
+<footer>Educational project on UN Sustainable Development Goal 13: Climate Action.</footer>
+<script src="script.js"></script>
+</body>
+</html>
